@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/sergiovenicio/grpc-server-example/infra/grpc/pb";
+
+service Fibonacci {
+ rpc CalcFibonacci(CalcRequest) returns (CalcResponse);
+ rpc GetFibonacci(GetRequest) returns (GetResponse);
+}
+
+message CalcRequest {
+  int64 number = 1;
+}
+
+message CalcResponse {
+  string processId = 1;
+  string status = 2;
+}
+
+message GetRequest {
+  string processId = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+  string status = 2;
+}
